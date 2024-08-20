@@ -1,0 +1,38 @@
+ .div1{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+   
+ }
+
+ .contianer{
+    border:  1px solid black;
+    height: 220px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    padding-top: 100px;
+  background-color: sienna;
+ }
+
+ input{
+    width: 280px;
+    height: 30px;
+    padding-left: 30px;
+    color: red;
+    
+ }
+
+ .btn{
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: blue;
+    color: red;
+ }
+ h1{
+    color: salmon;
+ }

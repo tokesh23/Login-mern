@@ -1,35 +1,28 @@
-const express = require("express")
-const mongoose = require("mongoose")
-const dotenv= require("dotenv")
- const cors = require("cors")
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const cors = require("cors");
 
-const routes= require("./router/Login_router")
+const routes = require("./router/Login_router");
 
+dotenv.config();
 
-dotenv.config()
-
-const app= express()
+const app = express();
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
-const PORT=process.env.PORT
-const MONGO_URL = process.env. MONGO_URI;
- 
-    app.use("/api",routes)
+const PORT = process.env.PORT || 3000; // Default port if not specified
+const MONGO_URI = process.env.MONGO_URI; // Ensure this is correctly defined
 
-    mongoose.connect(MONGO_URL,{useNewUrlParser: true, useUnifiedTopology: true })
+app.use("/api", routes);
 
-    .then(()=>{
-        console.log("connected to mongodb")
-        app.listen(PORT,()=>{
-            console.log(`server in on PORT:${PORT}`);
-    })   
+mongoose.connect(MONGO_URI,)
+    .then(() => {
+        console.log("Connected to MongoDB");
+        app.listen(PORT, () => {
+            console.log(`Server is running on PORT: ${PORT}`);
+        });
     })
-    .catch((error)=>{
-        console.error("Error cnnection to mongoDB",error)
-        
-    })
-
-   
-
- 
+    .catch((error) => {
+        console.error("Error connecting to MongoDB:", error);
+    });
